@@ -54,17 +54,18 @@ while True:
         price = float(el[0:])
         print temp2,price
         if price < 50:
-            scraperwiki.sqlite.save(unique_keys=["Code"], data={"Code":count, "value":price})
-        url = "https://www.hm.com/de/checkout/ordersummary/discountCode/remove?discountCode=" + temp2
-        response = br.open(url)
-        count = count + 1
-        bcount = bcount + 1
-        if bcount > 125:
-            url = "http://www.hm.com/de/bag/decreaseQty?artnr=611256&stockSize=034"
-            response = br.open(url)
-            url = "http://www.hm.com/de/logout"
-            response = br.open(url)
-            break
+            print 'geschafft'
+            #scraperwiki.sqlite.save(unique_keys=["Code"], data={"Code":count, "value":price})
+       # url = "https://www.hm.com/de/checkout/ordersummary/discountCode/remove?discountCode=" + temp2
+       # response = br.open(url)
+        #count = count + 1
+       # bcount = bcount + 1
+       # if bcount > 125:
+       #     url = "http://www.hm.com/de/bag/decreaseQty?artnr=611256&stockSize=034"
+           # response = br.open(url)
+           # url = "http://www.hm.com/de/logout"
+           # response = br.open(url)
+          #  break
     print "Good bye!"
 print "Good end"
 
