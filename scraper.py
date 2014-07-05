@@ -51,7 +51,7 @@ while True:
         el2 = root.cssselect("tfoot td span")[0].text.strip()
         el = el2.replace(',', '.')
         print(repr(el[2:]))
-        price = float(el[2:])
+        price = float(el[4:])
         print temp2,price
         if price < 50:
             scraperwiki.sqlite.save(unique_keys=["Code"], data={"Code":count, "value":price})
