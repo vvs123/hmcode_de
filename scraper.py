@@ -25,12 +25,12 @@ while True:
     
     br["username"] = "vvs123@byom.de"
     br["password"] = "1qay2wsx"
-    url = "http://www.hm.com/de/bag/remove?artnr=611256&stockSize=034"
-    response = br.open(url)
+    
     
     response = br.submit()
     #print response.read()
-
+url = "http://www.hm.com/de/bag/remove?artnr=611256&stockSize=034"
+    response = br.open(url)
     url = "http://www.hm.com/de/bag/add?artnr=611256&stockSize=034"
     response = br.open(url)
     url = "https://www.hm.com/de/checkout"
