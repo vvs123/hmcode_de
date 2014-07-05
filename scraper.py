@@ -11,7 +11,7 @@ br.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.
 
 
 #scraperwiki.sqlite.execute("delete from swdata where Code>0") 
-count = 0
+count = 2120
 
 while True:
     bcount = 0
