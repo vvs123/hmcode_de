@@ -49,7 +49,7 @@ while True:
         temp = response.read()
         root = lxml.html.fromstring(temp)
         el = root.cssselect("tfoot td span")[0].text.strip()
-        price = float(el[0:])
+        price = float(el[2:])
         print temp2,price
         if price < 24:
             scraperwiki.sqlite.save(unique_keys=["Code"], data={"Code":count, "value":price})
