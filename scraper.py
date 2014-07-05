@@ -29,7 +29,7 @@ while True:
     
     response = br.submit()
     #print response.read()
-url = "http://www.hm.com/de/bag/remove?artnr=611256&stockSize=034"
+    url = "http://www.hm.com/de/bag/remove?artnr=611256&stockSize=034"
     response = br.open(url)
     url = "http://www.hm.com/de/bag/add?artnr=611256&stockSize=034"
     response = br.open(url)
