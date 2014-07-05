@@ -11,7 +11,7 @@ br.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.
 
 
 #scraperwiki.sqlite.execute("delete from swdata where Code>0") 
-count = 2120
+count = 0
 
 while True:
     bcount = 0
@@ -60,7 +60,7 @@ while True:
         response = br.open(url)
         count = count + 1
         bcount = bcount + 1
-        if bcount > 125:
+        if bcount > 9999:
             url = "http://www.hm.com/de/bag/decreaseQty?artnr=611256&stockSize=034"
             response = br.open(url)
             url = "http://www.hm.com/de/logout"
