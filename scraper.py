@@ -49,7 +49,7 @@ while True:
         temp = response.read()
         root = lxml.html.fromstring(temp)
         el = root.cssselect("tfoot td span")[0].text.strip()
-        el = float(el.replace(',', '.'))
+        el = float(el.replace(',', ''))
         print(repr(el[2:]))
         price = float(el[2:])
         print temp2,price
