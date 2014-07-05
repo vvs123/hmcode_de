@@ -11,11 +11,11 @@ br.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.
 
 
 #scraperwiki.sqlite.execute("delete from swdata where Code>0") 
-count = 1766
+count = 0
 
 while True:
     bcount = 0
-    url = "https://www.hm.com/gb/login"
+    url = "https://www.hm.com/de/login"
     response = br.open(url)
     
     #print "All forms:", [ form.name  for form in br.forms() ]
@@ -23,17 +23,17 @@ while True:
     br.select_form(name="customerLogin")
     #print br.form
     
-    br["username"] = "morth123"
-    br["password"] = "morth123"
+    br["username"] = "vvs123@byom.de"
+    br["password"] = "1qay2wsx"
     
     
     
     response = br.submit()
     #print response.read()
     
-    url = "http://www.hm.com/gb/bag/add?artnr=818080&stockSize=305"
+    url = "http://www.hm.com/de/bag/add?artnr=611256&stockSize=034"
     response = br.open(url)
-    url = "https://www.hm.com/gb/checkout"
+    url = "https://www.hm.com/de/checkout"
     response = br.open(url)
     #print response.read()
     #print "All forms:", [ form.name  for form in br.forms() ]
@@ -49,18 +49,18 @@ while True:
         temp = response.read()
         root = lxml.html.fromstring(temp)
         el = root.cssselect("tfoot td span")[0].text.strip()
-        price = float(el[2:])
+        price = float(el[0:])
         print temp2,price
-        if price < 33:
+        if price < 24:
             scraperwiki.sqlite.save(unique_keys=["Code"], data={"Code":count, "value":price})
-        url = "https://www.hm.com/gb/checkout/ordersummary/discountCode/remove?discountCode=" + temp2
+        url = "https://www.hm.com/de/checkout/ordersummary/discountCode/remove?discountCode=" + temp2
         response = br.open(url)
         count = count + 1
         bcount = bcount + 1
         if bcount > 125:
-            url = "http://www.hm.com/gb/bag/decreaseQty?artnr=818080&stockSize=305"
+            url = "http://www.hm.com/de/bag/decreaseQty?artnr=560106&stockSize=036"
             response = br.open(url)
-            url = "http://www.hm.com/gb/logout"
+            url = "http://www.hm.com/de/logout"
             response = br.open(url)
             break
     print "Good bye!"
